@@ -1,0 +1,26 @@
+import math
+from turtle import *
+
+Função para o cálculo da forma do coração
+def heart(k):
+    return 15 * math.sin(k) ** 3
+
+def heart1(k):
+    return 12 * math.cos(k) - 5 * math.cos(2 * k) - 2 * math.cos(3 * k) - math.cos(4 * k)
+
+Configurações da tela e da tartaruga
+speed(0)  # Aumenta a velocidade da animação
+bgcolor('black')  # Define o fundo como preto
+penup()  # Levanta a caneta para mover sem desenhar
+goto(0, 0)  # Define a posição inicial no centro
+pendown()  # Abaixa a caneta para desenhar
+
+Laço para desenhar o coração
+for i in range(6000):
+    x = heart(i) * 20
+    y = heart1(i) * 20
+    goto(x, y)  # Move a tartaruga para a nova coordenada
+    color('pink')  # Define a cor do coração como rosa
+    dot(2)  # Desenha um pequeno ponto na posição atual
+
+done()  # Termina o desenho e mantém a janela aberta
